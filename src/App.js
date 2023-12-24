@@ -4,8 +4,9 @@ import SearchSection from './SearchSection';
 import SelectedSongSection from './SelectedSongSection';
 import RecommendationsSection from './RecommendationsSection';
 import './styles.css';
+import FadeIn from './FadeIn'
 
-const API_URL = 'https://spotify.wjdgns4019.workers.dev';
+const API_URL = process.env.REACT_APP_API_URL;
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -20,7 +21,8 @@ function App() {
       setSelectedSong(null);
       setRecommendations([]);
     } catch (error) {
-      console.error('Error searching for songs:', error);
+      console.error(error);
+      alert("해당 곡을 찾을 수 없습니다.");
     }
   };
 
@@ -35,17 +37,18 @@ function App() {
       const response = await axios.get(`${API_URL}/recommendations?seed_track=${selectedSong.id}`);
       setRecommendations(response.data.tracks);
     } catch (error) {
-      console.error('Error getting recommendations:', error);
+      console.error(error);
+      alert("추천 API 오류");
+      return;
     }
   };
 
-  const handlePreview = (previewUrl) => {
-    const audio = new Audio(previewUrl);
-    audio.play();
-  };
+
 
   return (
+    <div>
     <div className="app-container">
+      <FadeIn>
       <SearchSection
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
@@ -53,17 +56,27 @@ function App() {
         searchResults={searchResults}
         handleSelectSong={handleSelectSong}
       />
+      </FadeIn>
 
       {selectedSong && (
+        <FadeIn>
         <SelectedSongSection
           selectedSong={selectedSong}
           handleGetRecommendations={handleGetRecommendations}
         />
+        </FadeIn>
       )}
 
+
       {recommendations.length > 0 && (
-        <RecommendationsSection recommendations={recommendations} />
+        <FadeIn>
+        <RecommendationsSection recommendations={recommendations} selectedSong={selectedSong} />
+        </FadeIn>
       )}
+    </div>
+      {/* <div className="footer">
+        <p style={{margin:0}}>[Luna] [Spotify]</p>
+      </div> */}
     </div>
   );
 }

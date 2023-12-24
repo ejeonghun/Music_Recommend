@@ -1,11 +1,10 @@
 import React, { useRef } from 'react';
 
-const RecommendationsSection = ({ recommendations }) => {
+const RecommendationsSection = ({ recommendations, selectedSong }) => {
   const audioRef = useRef();
 
   const handlePreview = (previewUrl) => {
-    // Stop the currently playing audio
-    if (audioRef.current) {
+    if (audioRef.current) { // 만약 재싱 중인 곡이 있으면 정지
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
     }
@@ -13,12 +12,13 @@ const RecommendationsSection = ({ recommendations }) => {
     // Play the selected preview
     const audio = new Audio(previewUrl);
     audioRef.current = audio;
+    audio.volume = 0.5;  // 음량을 50%로 설정
     audio.play();
   };
 
   return (
     <div className="recommendations-container">
-      <h3>Recommendations</h3>
+      <h3>'{selectedSong.name}' 와 비슷한 노래</h3>
       <ul className="song-list">
         {recommendations.map((track) => (
           <li key={track.id}>
