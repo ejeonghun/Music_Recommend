@@ -9,11 +9,15 @@ const SearchSection = ({ searchQuery, setSearchQuery, handleSearch, searchResult
     handleSearch();
   };
 
+  const handleLinkClick = () => {
+    window.location.reload();
+  };
+
   return (
     <div>
         <div style={{display:'flex', alignItems:'center'}}>
         <img src={icon} style={{width:'32px',height:'32px'}} alt="mainlogo"/>
-        <a href='/'><p style={{margin:'0'}}>음악 추천 봇</p></a>
+        <a href='#' onClick={handleLinkClick}><p style={{margin:'0'}}>음악 추천 봇</p></a>
         </div>
     <br/>
       <div className="search-section">
@@ -45,9 +49,7 @@ const SearchSection = ({ searchQuery, setSearchQuery, handleSearch, searchResult
           </ul>
         </div>
       ) : (
-        <p className="floating-text">
-          
-        </p>
+        <p></p>
       )}
     </div>
   );
