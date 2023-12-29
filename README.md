@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+# Music_Recommend(음악 추천 봇)
+## [서비스 이용하기](https://main.lunaweb.dev/Music_Recommend/build/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 프로젝트 개요
+사용자가 추천 받고 싶은 노래를 검색하여 클릭을 하면 해당 노래와 비슷한 곡을 추천해주고,
 
-## Available Scripts
+Spotify 바로가기 링크와 미리듣기를 제공하여준다.
 
-In the project directory, you can run:
+## Stack
+- React
+- Spotify API
+- Cloudflare Workers
+- Github Pages
 
-### `npm start`
+## 프로젝트 설명
+Spotify API는 API를 요청을 하려면 유효기간이 있는 토큰을 발급받아야 함, 프론트엔드 단에서 해당 요청을 수행하기에는 API키
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+개인정보 관련 문제로 Cloudflare Workers의 Serverless 시스템을 활용하여 프론트엔드에서 필요한 API들을 구축하여 Workers에서
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+토큰을 발급받고 해당 요청을 처리 후 프론트엔드로 해당 결과의 응답을 보내주는 형식으로 작동한다.
 
-### `npm test`
+## DEMO IMAGE
+![image](https://github.com/ejeonghun/Music_Recommend/assets/41509711/4b95472e-4e5c-47a9-beae-5ab13489afea)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
