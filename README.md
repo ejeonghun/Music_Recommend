@@ -21,4 +21,4 @@ Spotify API는 API를 요청을 하려면 유효기간이 있는 토큰을 발�
 
 ## DEMO IMAGE
 ![image](https://github.com/ejeonghun/Music_Recommend/assets/41509711/4b95472e-4e5c-47a9-beae-5ab13489afea)
-
+### [화면구성](https://github.com/ejeonghun/Music_Recommend/wiki/%ED%99%94%EB%A9%B4-%EA%B5%AC%EC%84%B1)
